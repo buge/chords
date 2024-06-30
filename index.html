@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chord Generator</title>
+
+    <script>
+      const NOTES = [
+        "C",
+        "C#",
+        "D",
+        "D#",
+        "E",
+        "F",
+        "F#",
+        "G",
+        "G#",
+        "A",
+        "A#",
+        "B",
+      ];
+
+      const CHORD_TYPE = ["Major", "Minor"];
+
+      function generate_chord() {
+        const note = NOTES[Math.floor(Math.random() * NOTES.length)];
+        const type = CHORD_TYPE[Math.floor(Math.random() * CHORD_TYPE.length)];
+        return `${note} ${type}`;
+      }
+
+      function update_chord() {
+        const elem = document.getElementById("chord");
+        elem.innerText = generate_chord();
+      }
+    </script>
+
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1 {
+        font-weight: 500;
+        font-size: 10em;
+      }
+    </style>
+  </head>
+
+  <body onload="update_chord()" onclick="update_chord()">
+    <h1 id="chord"></h1>
+  </body>
+</html>
